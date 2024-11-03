@@ -1,0 +1,111 @@
+/* Reiniciar estilos predeterminados */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background: linear-gradient(135deg, #e0e4fc, #f3ccff);
+    background-size: 200% 200%;
+    animation: backgroundMove 10s infinite alternate;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Animación de fondo */
+  @keyframes backgroundMove {
+    from {
+      background-position: 0% 0%;
+    }
+    to {
+      background-position: 100% 100%;
+    }
+  }
+  
+  /* Estilo del encabezado con el nombre del perfil */
+  .profile-header {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .profile-name {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #111;
+  }
+  
+  .profile-name .dot {
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+  
+  /* Estilo de los enlaces sociales */
+  .social-links a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .social-links a:hover {
+    color: #555;
+  }
+  
+  /* Estilo de la sección del perfil */
+  .profile-container {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+    margin-top: 40px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  
+  .profile-details h2 {
+    font-size: 48px;
+    color: #333;
+  }
+  
+  .profile-details .status {
+    display: inline-block;
+    background-color: #ffefc1;
+    color: #333;
+    border-radius: 12px;
+    padding: 5px 10px;
+    margin: 10px 0;
+  }
+  
+  .profile-details p {
+    font-size: 18px;
+    color: #555;
+    margin: 10px 0;
+  }
+  
+  .profile-details h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
