@@ -32,4 +32,61 @@
   </div>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Astra</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Estilos para el mensaje flotante */
+    .floating-message {
+      display: none;
+      position: fixed;
+      background-color: rgba(139, 0, 0, 0.8); /* Rojo oscuro */
+      color: white;
+      padding: 15px 25px;
+      border-radius: 8px;
+      font-size: 24px;
+      font-weight: bold;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+  </style>
+</head>
+<body oncontextmenu="showMessage(event); return false;">
+  <div class="profile-header">
+    <!-- Contenido de perfil aquí -->
+  </div>
+
+  <!-- Mensaje flotante -->
+  <div id="message" class="floating-message">¿Qué intentas hacer?</div>
+
+  <script>
+    function showMessage(event) {
+      const message = document.getElementById('message');
+      
+      // Posicionar el mensaje en la posición del cursor
+      message.style.left = `${event.clientX}px`;
+      message.style.top = `${event.clientY}px`;
+      
+      // Mostrar el mensaje
+      message.style.display = 'block';
+      message.style.opacity = '1';
+
+      // Ocultar el mensaje después de 3 segundos
+      setTimeout(() => {
+        message.style.opacity = '0';
+        setTimeout(() => {
+          message.style.display = 'none';
+        }, 500); // Espera a que la transición de opacidad termine
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
 
