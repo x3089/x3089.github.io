@@ -1,93 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3930275961632733"
-  crossorigin="anonymous"></script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Astra</title>
-  <link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astra - Portafolio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, black, #ff0000);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+            overflow: hidden;
+            color: white;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        header {
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-shadow: 0 0 20px red;
+        }
+
+        p {
+            font-size: 1.2rem;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 20px auto;
+            border: 3px solid red;
+            box-shadow: 0 0 15px red;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            text-decoration: none;
+            color: white;
+            font-size: 2rem;
+            margin: 0 15px;
+            transition: transform 0.3s, text-shadow 0.3s;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+            text-shadow: 0 0 15px #00ff00;
+        }
+
+        .parallax {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(255, 0, 0, 0.2);
+            animation: moveCircle 15s infinite;
+        }
+
+        @keyframes moveCircle {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(50vw, 50vh); }
+            100% { transform: translate(0, 0); }
+        }
+
+        #music-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #ff0000;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 0 10px red;
+            transition: background 0.3s;
+        }
+
+        #music-btn:hover {
+            background: black;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+    </style>
 </head>
 <body>
-  <div class="profile-header">
-    <div class="profile-name">
-      <span class="dot"></span>
-      Astra
+    <header>
+        <h1>ASTRA🦇</h1>
+        <img src="Astrita.jpg" alt="Astra" class="profile-pic">
+        <p>Soy Astra, un desarrollador activo - By Astra</p>
+        <div class="social-icons">
+            <a href="https://github.com" target="_blank">GitHub</a>
+            <a href="https://youtube.com" target="_blank">YouTube</a>
+            <a href="https://spotify.com" target="_blank">Spotify</a>
+        </div>
+    </header>
+
+    <div class="parallax">
+        <div class="circle" style="width: 200px; height: 200px; top: 10%; left: 20%;"></div>
+        <div class="circle" style="width: 300px; height: 300px; top: 50%; left: 70%;"></div>
+        <div class="circle" style="width: 150px; height: 150px; top: 80%; left: 30%;"></div>
     </div>
-    <div class="social-links">
-      <a href="https://github.com/x3089" target="_blank">GitHub</a>
-      <a href="https://youtube.com/@x766pch" target="_blank">YouTube</a>
-      <a href="https://open.spotify.com/user/31gk4xokhcrb2kecq4nheorcgrnm?si=8CkiRKnDRuaFxJZVZKeo_g" target="_blank">Spotify</a>
-    </div>
-  </div>
-  
-  <div class="profile-container">
-    <div class="profile-image">
-      <img src="Astrita.jpg" alt="Foto de perfil">
-    </div>
-    <div class="profile-details">
-      <h2>🦇</h2>
-      <span class="status">Acostado con tu mama</span>
-      <p>Soy Astra y me gusta tu mama</p>
-      <h3>Un desarrollador activo - By Astra.</h3>
-    </div>
-  </div>
+
+    <button id="music-btn">🎵 Activar Música</button>
+
+    <footer>
+        Creado por Astra 🦇. Todos los derechos reservados.
+    </footer>
+
+    <audio id="background-music" loop>
+        <source src="Freddie Dredd - Limbo (Lyrics).mp3" type="audio/mpeg">
+        Tu navegador no soporta audio HTML5.
+    </audio>
+
+    <script>
+        const musicBtn = document.getElementById('music-btn');
+        const backgroundMusic = document.getElementById('background-music');
+
+        let isPlaying = false;
+
+        musicBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                backgroundMusic.pause();
+                musicBtn.textContent = '🎵 Activar Música';
+            } else {
+                backgroundMusic.play();
+                musicBtn.textContent = '⏸️ Detener Música';
+            }
+            isPlaying = !isPlaying;
+        });
+    </script>
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Astra</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    /* Estilos para el mensaje flotante */
-    .floating-message {
-      display: none;
-      position: fixed;
-      background-color: rgba(139, 0, 0, 0.8); /* Rojo oscuro */
-      color: white;
-      padding: 15px 25px;
-      border-radius: 8px;
-      font-size: 24px;
-      font-weight: bold;
-      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
-      z-index: 1000;
-      text-align: center;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
-  </style>
-</head>
-<body oncontextmenu="showMessage(event); return false;">
-  <div class="profile-header">
-    <!-- Contenido de perfil aquí -->
-  </div>
-
-  <!-- Mensaje flotante -->
-  <div id="message" class="floating-message">¿Qué intentas hacer?</div>
-
-  <script>
-    function showMessage(event) {
-      const message = document.getElementById('message');
-      
-      // Posicionar el mensaje en la posición del cursor
-      message.style.left = `${event.clientX}px`;
-      message.style.top = `${event.clientY}px`;
-      
-      // Mostrar el mensaje
-      message.style.display = 'block';
-      message.style.opacity = '1';
-
-      // Ocultar el mensaje después de 3 segundos
-      setTimeout(() => {
-        message.style.opacity = '0';
-        setTimeout(() => {
-          message.style.display = 'none';
-        }, 500); // Espera a que la transición de opacidad termine
-      }, 3000);
-    }
-  </script>
-</body>
-</html>
-
