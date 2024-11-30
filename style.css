@@ -1,111 +1,180 @@
-/* Reiniciar estilos predeterminados */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Configuración del cuerpo */
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Evita barras de desplazamiento */
+  font-family: Arial, sans-serif;
+  color: rgb(108, 96, 96);
+  background: linear-gradient(45deg, #9e9595, #353535); /* Gradiente blanco y rosa */
+  background-size: 400% 400%; /* Escala para animación */
+  animation: backgroundMove 8s infinite; /* Animación infinita */
+}
+
+/* Animación del fondo */
+@keyframes backgroundMove {
+  0% {
+    background-position: 0% 50%;
   }
-  
-  body {
-    font-family: 'Arial', sans-serif;
-    color: #333;
-    background: linear-gradient(135deg, #e0e4fc, #f3ccff);
-    background-size: 200% 200%;
-    animation: backgroundMove 10s infinite alternate;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
+  50% {
+    background-position: 100% 50%;
   }
-  
-  /* Animación de fondo */
-  @keyframes backgroundMove {
-    from {
-      background-position: 0% 0%;
-    }
-    to {
-      background-position: 100% 100%;
-    }
+  100% {
+    background-position: 0% 50%;
   }
-  
-  /* Estilo del encabezado con el nombre del perfil */
-  .profile-header {
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
+}
+
+/* Estilo para el texto en la esquina superior izquierda */
+.top-left-text {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 1.5rem;
+  color: white;
+  font-weight: bold;
+}
+
+/* Estilo para el punto verde */
+.green-dot {
+  color: #28a745; /* Verde */
+  font-size: 2rem;
+  vertical-align: middle;
+}
+
+/* Animación del texto chino */
+.animated-text {
+  font-size: 2.5rem; /* Reducido el tamaño de las letras chinas */
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.animated-text span {
+  display: inline-block;
+  font-size: 2rem; /* También se ajusta el tamaño de cada letra individual */
+  color: #333;
+  opacity: 0;
+  animation: fadeInOut 2s ease-in-out infinite;
+}
+
+.animated-text span:nth-child(1) { animation-delay: 0s; }
+.animated-text span:nth-child(2) { animation-delay: 0.4s; }
+.animated-text span:nth-child(3) { animation-delay: 0.8s; }
+.animated-text span:nth-child(4) { animation-delay: 1.2s; }
+.animated-text span:nth-child(5) { animation-delay: 1.6s; }
+.animated-text span:nth-child(6) { animation-delay: 2s; }
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0;
   }
-  
-  .profile-name {
-    display: flex;
-    align-items: center;
-    font-size: 24px;
-    font-weight: bold;
-    color: #111;
+  50% {
+    opacity: 1;
   }
-  
-  .profile-name .dot {
-    width: 10px;
-    height: 10px;
-    background-color: red;
-    border-radius: 50%;
-    margin-right: 8px;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #000000;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+}
+
+p {
+  color: rgb(0, 0, 0);
+  font-size: 32px;
+}
+
+/* Imagen del perfil */
+.imagen-circular {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #404040;
+}
+
+.profile-name {
+  margin-top: 10px;
+  font-size: 20px;
+  color: #000000;
+  text-shadow: 0px 0px 5px rgba(26, 23, 25, 0.822);
+}
+
+/* Enlaces sociales */
+.social-links {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.icon {
+  text-decoration: none;
+  color: #171515;
+  font-size: 2rem;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.icon:hover {
+  transform: scale(1.5);
+}
+
+.github:hover {
+  color: #000000;
+}
+
+.instagram:hover {
+  color: #dc3150;
+}
+
+.youtube:hover {
+  color: #ff0000;
+}
+
+.spotify:hover {
+  color: #1DB954;
+}
+
+.discord:hover {
+  color: #4e00ea;
+}
+
+/* Pie de página */
+footer {
+  color: #000000;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+}
+
+/* Estilo del mensaje flotante */
+#message {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  display: none; /* Ocultar el mensaje por defecto */
+  z-index: 9999; /* Asegura que el mensaje esté por encima de otros elementos */
+}
+
+/* Estilo para el sticker 🦇 en la esquina inferior derecha */
+.sticker {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-size: 3rem;
+  animation: rotateSticker 3s linear infinite;
+}
+
+/* Animación de rotación para el sticker */
+@keyframes rotateSticker {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  /* Estilo de los enlaces sociales */
-  .social-links a {
-    margin-left: 20px;
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    transition: color 0.3s;
+  100% {
+    transform: rotate(360deg);
   }
-  
-  .social-links a:hover {
-    color: #555;
-  }
-  
-  /* Estilo de la sección del perfil */
-  .profile-container {
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 15px;
-    padding: 20px;
-    width: 80%;
-    max-width: 800px;
-    text-align: center;
-    margin-top: 40px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  }
-  
-  .profile-image img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-  }
-  
-  .profile-details h2 {
-    font-size: 48px;
-    color: #333;
-  }
-  
-  .profile-details .status {
-    display: inline-block;
-    background-color: #ffefc1;
-    color: #333;
-    border-radius: 12px;
-    padding: 5px 10px;
-    margin: 10px 0;
-  }
-  
-  .profile-details p {
-    font-size: 18px;
-    color: #555;
-    margin: 10px 0;
-  }
-  
-  .profile-details h3 {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-  }
+}
