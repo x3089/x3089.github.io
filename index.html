@@ -10,7 +10,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Añadir el texto "By Astra" con el punto verde en la esquina superior izquierda -->
     <div class="top-left-text">
         By Astra <span class="green-dot">•</span>
     </div>
@@ -59,7 +58,6 @@
         Tu navegador no soporta la reproducción de audio.
     </audio>
 
-    <!-- Sticker 🦇 en la esquina inferior derecha -->
     <div class="sticker">
         🦇
     </div>
@@ -96,13 +94,3 @@
 </body>
 </html>
 <script>
-    // Enviar una solicitud al archivo PHP para registrar la IP
-    fetch('track_ip.php', { method: 'GET' })
-        .then(response => response.text())
-        .then(data => {
-            console.log('IP registrada');
-        })
-        .catch(error => {
-            console.error('Error al registrar la IP:', error);
-        });
-</script>
