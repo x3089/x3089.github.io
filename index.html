@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="discord-verification" content="dh=3a718e63da6fe1e36738e36c68b9277398171e8e">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>透過阿斯特拉</title>
+    <link rel="icon" href="Astrita.jpg" type="image/x-icon">
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="top-left-text">
+        By Astra <span class="green-dot">•</span>
+    </div>
+
+    <center><h1>Astra 🦇</h1></center>
+    <center><p>Un desarrollador en las sombras...</p></center>
+    <center>
+        <div class="profile">
+            <img src="image.png" alt="Astrita" class="imagen-circular">
+            <p class="profile-name">Un maldito desarrollador activo - By Astra. 🦇</p>
+        </div>
+    </center>
+    <center>
+        <div class="animated-text">
+            <span>透</span>
+            <span>過</span>
+            <span>阿</span>
+            <span>斯</span>
+            <span>特</span>
+            <span>拉</span>
+        </div>
+    </center>
+    <div class="social-links">
+        <a href="https://github.com/x3089" target="_blank" class="icon github">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.youtube.com/@x766pch" target="_blank" class="icon youtube">
+            <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://www.instagram.com/realdonaldtrump/" target="_blank" class="icon instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://open.spotify.com/user/31gk4xokhcrb2kecq4nheorcgrnm?si=8CkiRKnDRuaFxJZVZKeo_g&nd=1&dlsi=ea16c8e50efb4fa1" target="_blank" class="icon spotify">
+            <i class="fab fa-spotify"></i>
+        </a>
+        <a href="https://discord.com/users/1260165451091148905" target="_blank" class="icon discord">
+            <i class="fab fa-discord"></i>
+        </a>
+    </div>
+    <footer>
+        Creado por Astra 🦇. Todos los derechos reservados.
+    </footer>
+
+    <audio id="background-music" autoplay loop muted>
+        <source src="Yecko X Hades66 - 19X (Official Video).mp3" type="audio/mpeg">
+        Tu navegador no soporta la reproducción de audio.
+    </audio>
+
+    <div class="sticker">
+        🎅🏻
+    </div>
+
+    <script>
+        window.addEventListener('click', function() {
+            var audio = document.getElementById('background-music');
+            if (audio.muted) {
+                audio.muted = false;
+                audio.play(); 
+            }
+        });
+
+        document.addEventListener("contextmenu", function(event) {
+            event.preventDefault();
+            var x = event.pageX;
+            var y = event.pageY;
+            var message = document.getElementById('message');
+            message.style.left = x + 'px';
+            message.style.top = y + 'px';
+            message.style.display = 'block';
+            setTimeout(function() {
+                message.style.display = 'none';
+            }, 3000);
+        });
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "F12" || (event.ctrlKey && event.shiftKey && event.key === "I")) {
+                event.preventDefault();
+            }
+        });
+    </script> 
+    <div id="message">Código fuente encriptado</div>
+</body>
+</html>
+<script>
