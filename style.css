@@ -4,8 +4,8 @@ body {
   padding: 0;
   overflow: hidden; /* Evita barras de desplazamiento */
   font-family: Arial, sans-serif;
-  color: rgb(108, 96, 96);
-  background: linear-gradient(45deg, #9e9595, #353535); /* Gradiente blanco y rosa */
+  color: rgb(0, 0, 0);
+  background: linear-gradient(45deg, #2e2828, #000000); /* Gradiente blanco y rosa */
   background-size: 400% 400%; /* Escala para animación */
   animation: backgroundMove 8s infinite; /* Animación infinita */
 }
@@ -51,7 +51,7 @@ body {
 .animated-text span {
   display: inline-block;
   font-size: 2rem; /* También se ajusta el tamaño de cada letra individual */
-  color: #333;
+  color: #ff0000;
   opacity: 0;
   animation: fadeInOut 2s ease-in-out infinite;
 }
@@ -74,12 +74,12 @@ body {
 
 h1 {
   font-size: 3rem;
-  color: #000000;
+  color: #ff0000;
   text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
 }
 
 p {
-  color: rgb(0, 0, 0);
+  color: rgb(101, 100, 85);
   font-size: 32px;
 }
 
@@ -89,13 +89,13 @@ p {
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #404040;
+  border: 3px solid #00ffae;
 }
 
 .profile-name {
   margin-top: 10px;
   font-size: 20px;
-  color: #000000;
+  color: #ffffff;
   text-shadow: 0px 0px 5px rgba(26, 23, 25, 0.822);
 }
 
@@ -109,7 +109,7 @@ p {
 
 .icon {
   text-decoration: none;
-  color: #171515;
+  color: #ffffff;
   font-size: 2rem;
   transition: transform 0.3s, color 0.3s;
 }
@@ -140,7 +140,7 @@ p {
 
 /* Pie de página */
 footer {
-  color: #000000;
+  color: #ffffff;
   position: absolute;
   bottom: 10px;
   width: 100%;
