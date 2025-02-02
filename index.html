@@ -11,6 +11,23 @@
     <meta http-equiv="content-language" content="en-gb">
     <link rel="icon" href="image.png" type="image/x-icon">
     <style>
+      .view-counter {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+.view-counter img {
+  width: 20px;
+  margin-right: 5px;
+}
+
       .markdown-body {
         box-sizing: border-box;
         min-width: 200px;
@@ -53,6 +70,11 @@
     <link rel="stylesheet" crossorigin href="/assets/index-D4JKo971.css">
   </head>
   <body>
+    <div class="view-counter">
+      <img src="eye.png" alt="eye">
+      <span id="view-count">0</span>
+    </div>
+    
     <article class="markdown-body">
       <div class="highlight highlight-js invisibility">
         <pre><span class="pl-k">let</span> <span class="pl-s1">Astra</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Date</span><span class="pl-kos">(03-08</span><span class="pl-kos">)</span><span class="pl-kos">;</span><br><span class="pl-k">let</span> <span class="pl-s1">future</span> <span class="pl-c1">=</span> <span class="pl-v">Infinity</span><span class="pl-kos">;</span></pre>
@@ -60,7 +82,7 @@
       <div id="content">
         <!-- Título animado -->
         <h1>👋 Hola! Soy Astra.</h1>
-        <img align="right" src="./aaaa.png" width="320px" alt="body">
+        <img align="right" src="pc.jpg" width="320px" alt="body">
         <ul>
           <li>Astra. <code>/astra/</code></li>
           <li>Un estudiante de bachillerato 📚</li>
