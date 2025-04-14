@@ -28,13 +28,31 @@
         opacity: 0.8;
       }
 
+      .status-wrapper {
+        position: relative;
+        display: inline-block;
+        float: right;
+        margin-left: 10px;
+      }
+
+      .status-dot {
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        border: 2px solid white;
+        background-color: gray;
+        z-index: 10;
+      }
+
       @media (max-width: 767px) {
         .markdown-body {
           padding: 15px;
         }
       }
 
-      /* Animación para el título */
       @keyframes slideTitle {
         0% {
           transform: translateX(-100%);
@@ -60,7 +78,10 @@
       <div id="content">
         <!-- Título animado -->
         <h1>👋 Hola! Soy Astra.</h1>
-        <img align="right" src="pc.jpg" width="320px" alt="body">
+        <div class="status-wrapper">
+          <img src="pc.jpg" width="320px" alt="body">
+          <div class="status-dot" id="discord-status"></div>
+        </div>
         <ul>
           <li>Astra. <code>/astra/</code></li>
           <li>Un estudiante de bachillerato 📚</li>
@@ -83,5 +104,31 @@
       </div>
     </article>
     <img src="astra.png" alt="Astra" class="corner-image">
+    <script>
+      const userId = "1344058511163916381";
+
+      async function updateDiscordStatus() {
+        try {
+          const res = await fetch(`https://api.lanyard.rest/v1/users/${userId}`);
+          const data = await res.json();
+          const status = data.data.discord_status;
+          const dot = document.getElementById("discord-status");
+
+          const colors = {
+            online: "green",
+            idle: "yellow",
+            dnd: "red",
+            offline: "gray"
+          };
+
+          dot.style.backgroundColor = colors[status] || "gray";
+        } catch (e) {
+          console.error("Error al obtener el estado de Discord:", e);
+        }
+      }
+
+      updateDiscordStatus();
+      setInterval(updateDiscordStatus, 10000);
+    </script>
   </body>
 </html>
