@@ -81,14 +81,39 @@
         display: inline-block;
         animation: slideTitle 3s ease-in-out;
       }
+
       .interactive-image-wrapper {
   width: 320px;
   border-radius: 20px;
   overflow: hidden;
-  transition: transform 0.3s ease;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   transform-style: preserve-3d;
-  perspective: 800px;
+  perspective: 1000px;
+  position: relative;
+  border: 3px solid transparent;
+}
+
+.interactive-image-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.1), transparent, rgba(255,255,255,0.1));
+  transform: rotate(0deg);
+  pointer-events: none;
+  animation: shine 4s linear infinite;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) rotate(25deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(25deg);
+  }
 }
 
 .interactive-image {
@@ -97,8 +122,6 @@
   border-radius: 20px;
   transition: transform 0.2s ease;
 }
-
-
 
     </style>
     <script type="module" crossorigin src="/assets/index-Ch_OrRiS.js"></script>
@@ -110,41 +133,14 @@
         <pre><span class="pl-k">let</span> <span class="pl-s1">Astra</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Date</span><span class="pl-kos">(03-08</span><span class="pl-kos">)</span><span class="pl-kos">;</span><br><span class="pl-k">let</span> <span class="pl-s1">future</span> <span class="pl-c1">=</span> <span class="pl-v">Infinity</span><span class="pl-kos">;</span></pre>
       </div>
       <div id="content">
-        <!-- Título animado -->
         <h1>👋 Hola! Soy Astra.</h1>
         <div class="status-wrapper">
           <div class="interactive-image-wrapper">
-            <img src="pc.jpg" alt="body" class="interactive-image">
+            <img id="discord-avatar" src="" alt="Discord Avatar" class="interactive-image" width="320px">
           </div>
-          <script>
-            const wrapper = document.querySelector('.interactive-image-wrapper');
-          
-            wrapper.addEventListener('mousemove', e => {
-              const rect = wrapper.getBoundingClientRect();
-              const offsetX = e.clientX - rect.left;
-              const offsetY = e.clientY - rect.top;
-              const centerX = rect.width / 2;
-              const centerY = rect.height / 2;
-          
-              const rotateX = ((offsetY - centerY) / centerY) * -15; // más giro en X
-              const rotateY = ((offsetX - centerX) / centerX) * 15;  // más giro en Y
-          
-              wrapper.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.08)`;
-            });
-          
-            wrapper.addEventListener('mouseleave', () => {
-              wrapper.style.transition = 'transform 0.4s ease';
-              wrapper.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
-            });
-          
-            wrapper.addEventListener('mouseenter', () => {
-              wrapper.style.transition = 'transform 0.1s ease';
-            });
-          </script>
-          
-          
           <div class="status-dot" id="discord-status"></div>
         </div>
+
         <ul>
           <li>Astra. <code>/astra/</code></li>
           <li>Un estudiante de bachillerato 📚</li>
@@ -154,19 +150,33 @@
           <li>Soy un desarrollador de software de código abierto, solo un creador de basura cibernética que a veces arroja basura en GitHub 🚮</li>
           <li>Mi sueño es convertirme en un desarrollador de software 👨‍💻</li>
         </ul>
+
         <h3>💻 Entorno de desarrollo</h3>
         <p><img src="https://skillicons.dev/icons?i=vscode,git,powershell&amp;theme=dark" alt="Using"></p>
         <p><img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&amp;logo=windows&amp;logoColor=white" alt="Windows"> <img src="https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&amp;logo=ubuntu&amp;logoColor=white" alt="Ubuntu"> <img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&amp;logo=android&amp;logoColor=white" alt="Android"></p>
+
         <h3>📚 Aprendiendo &amp; Practicando:</h3>
         <p><img src="https://skillicons.dev/icons?i=html,css,js,ts,nodejs,electron,vue,python&amp;theme=dark" alt="Learning"></p>
         <p>Mi estudio autodidacta de la programación comenzó en verano, lo cual es relativamente tarde en términos de tiempo. Así que todo lo que puedo hacer ahora es crear basura cibernética. Si estás interesado, puedes echar un vistazo a mi <a href="https://github.com/x3089" target="_blank">perfil de Github</a>.</p>
+
         <h3>🔎 Interesado en:</h3>
         <p><img src="https://skillicons.dev/icons?i=cs,qt,nuxtjs,godot,gamemakerstudio&amp;theme=dark" alt="Interesting at"></p>
+
         <h2>🔗 Link</h2>
-        <p><a href="https://github.com/x3089" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="Github"></a>&nbsp; <a href="https://discord.com/users/1344058511163916381" target="_blank"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&amp;logo=discord&amp;logoColor=white" alt="Discord"></a></p>
+        <p>
+          <a href="https://github.com/x3089" target="_blank">
+            <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="Github">
+          </a>
+          &nbsp;
+          <a href="https://discord.com/users/1344058511163916381" target="_blank">
+            <img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&amp;logo=discord&amp;logoColor=white" alt="Discord">
+          </a>
+        </p>
       </div>
     </article>
+
     <img src="astra.png" alt="Astra" class="corner-image">
+
     <script>
       const userId = "1344058511163916381";
 
@@ -176,6 +186,7 @@
           const data = await res.json();
           const status = data.data.discord_status;
           const dot = document.getElementById("discord-status");
+          const avatar = document.getElementById("discord-avatar");
 
           const states = {
             online: { color: "green", text: "En línea" },
@@ -185,9 +196,12 @@
           };
 
           const { color, text } = states[status] || states.offline;
-
           dot.style.backgroundColor = color;
           dot.setAttribute("data-tooltip", text);
+
+          const avatarHash = data.data.discord_user.avatar;
+          const avatarURL = `https://cdn.discordapp.com/avatars/${userId}/${avatarHash}.png?size=512`;
+          avatar.src = avatarURL;
         } catch (e) {
           console.error("Error al obtener el estado de Discord:", e);
         }
@@ -195,6 +209,35 @@
 
       updateDiscordStatus();
       setInterval(updateDiscordStatus, 10000);
-    </script>
+
+  const wrapper = document.querySelector('.interactive-image-wrapper');
+
+  wrapper.addEventListener('mousemove', e => {
+    const rect = wrapper.getBoundingClientRect();
+    const offsetX = e.clientX - rect.left;
+    const offsetY = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = ((offsetY - centerY) / centerY) * -20;
+    const rotateY = ((offsetX - centerX) / centerX) * 20;
+
+    wrapper.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.1)`;
+    wrapper.style.boxShadow = `0 30px 60px rgba(0,0,0,0.5), 0 0 30px rgba(0, 174, 255, 0.4)`;
+    wrapper.style.borderColor = `rgba(0, 174, 255, 0.6)`;
+  });
+
+  wrapper.addEventListener('mouseleave', () => {
+    wrapper.style.transition = 'transform 0.4s ease, box-shadow 0.4s ease';
+    wrapper.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+    wrapper.style.boxShadow = '0 20px 60px rgba(0, 0, 0, 0.3)';
+    wrapper.style.borderColor = 'transparent';
+  });
+
+  wrapper.addEventListener('mouseenter', () => {
+    wrapper.style.transition = 'transform 0.1s ease, box-shadow 0.1s ease';
+  });
+</script>
+
   </body>
 </html>
