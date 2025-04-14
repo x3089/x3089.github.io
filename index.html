@@ -81,6 +81,25 @@
         display: inline-block;
         animation: slideTitle 3s ease-in-out;
       }
+      .interactive-image-wrapper {
+  width: 320px;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  transform-style: preserve-3d;
+  perspective: 800px;
+}
+
+.interactive-image {
+  width: 100%;
+  display: block;
+  border-radius: 20px;
+  transition: transform 0.2s ease;
+}
+
+
+
     </style>
     <script type="module" crossorigin src="/assets/index-Ch_OrRiS.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-D4JKo971.css">
@@ -94,7 +113,36 @@
         <!-- Título animado -->
         <h1>👋 Hola! Soy Astra.</h1>
         <div class="status-wrapper">
-          <img src="pc.jpg" width="320px" alt="body">
+          <div class="interactive-image-wrapper">
+            <img src="pc.jpg" alt="body" class="interactive-image">
+          </div>
+          <script>
+            const wrapper = document.querySelector('.interactive-image-wrapper');
+          
+            wrapper.addEventListener('mousemove', e => {
+              const rect = wrapper.getBoundingClientRect();
+              const offsetX = e.clientX - rect.left;
+              const offsetY = e.clientY - rect.top;
+              const centerX = rect.width / 2;
+              const centerY = rect.height / 2;
+          
+              const rotateX = ((offsetY - centerY) / centerY) * -15; // más giro en X
+              const rotateY = ((offsetX - centerX) / centerX) * 15;  // más giro en Y
+          
+              wrapper.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.08)`;
+            });
+          
+            wrapper.addEventListener('mouseleave', () => {
+              wrapper.style.transition = 'transform 0.4s ease';
+              wrapper.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+            });
+          
+            wrapper.addEventListener('mouseenter', () => {
+              wrapper.style.transition = 'transform 0.1s ease';
+            });
+          </script>
+          
+          
           <div class="status-dot" id="discord-status"></div>
         </div>
         <ul>
