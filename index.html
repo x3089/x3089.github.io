@@ -45,6 +45,21 @@
         border: 2px solid white;
         background-color: gray;
         z-index: 10;
+        transition: background-color 0.4s ease;
+      }
+
+      .status-dot:hover::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        top: -30px;
+        right: 0;
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        font-size: 12px;
+        padding: 4px 8px;
+        border-radius: 6px;
+        white-space: nowrap;
+        pointer-events: none;
       }
 
       @media (max-width: 767px) {
@@ -114,14 +129,17 @@
           const status = data.data.discord_status;
           const dot = document.getElementById("discord-status");
 
-          const colors = {
-            online: "green",
-            idle: "yellow",
-            dnd: "red",
-            offline: "gray"
+          const states = {
+            online: { color: "green", text: "En línea" },
+            idle: { color: "gold", text: "Ausente" },
+            dnd: { color: "red", text: "No molestar" },
+            offline: { color: "gray", text: "Desconectado" }
           };
 
-          dot.style.backgroundColor = colors[status] || "gray";
+          const { color, text } = states[status] || states.offline;
+
+          dot.style.backgroundColor = color;
+          dot.setAttribute("data-tooltip", text);
         } catch (e) {
           console.error("Error al obtener el estado de Discord:", e);
         }
